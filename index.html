@@ -1,6 +1,7 @@
 <!doctype html>
 <head>
   <title>CSV Viewer Online</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/handsontable/0.28.4/handsontable.full.min.css">
   <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -8,11 +9,10 @@
   <p align="center">
     <input type="file" id="input-file" accept=".csv">
   </p>
+  
   <div id="handsontable-container"></div>
 
   <script src="https://cdn.jsdelivr.net/handsontable/0.28.4/handsontable.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/papaparse/4.1.2/papaparse.min.js"></script>
   <script src="./app.js"></script>
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/handsontable/0.28.4/handsontable.full.min.css">
 </body>
