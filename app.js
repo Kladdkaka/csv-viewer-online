@@ -1,7 +1,7 @@
 /* global FileReader, Papa, Handsontable */
 
-var input = document.getElementById('input-file')
-var handsontableContainer = document.getElementById('handsontable-container')
+const input = document.getElementById('input-file')
+const handsontableContainer = document.getElementById('handsontable-container')
 
 input.onchange = function () {
   var file = this.files[0]
@@ -9,18 +9,23 @@ input.onchange = function () {
 
   reader.onload = function (e) {
     var csv = e.target.result
-    var data = Papa.parse(csv, {
-      header: true,
-      skipEmptyLines: true
-    })
-
-    Handsontable(handsontableContainer, {
-      data: data.data,
-      rowHeaders: true,
-      colHeaders: data.meta.fields,
-      columnSorting: true
-    })
+    
+    createTable(csv)
   }
 
   reader.readAsText(file)
+}
+
+const createTable = csv => {
+  var data = Papa.parse(csv, {
+    header: true,
+    skipEmptyLines: true
+  })
+
+  Handsontable(handsontableContainer, {
+    data: data.data,
+    rowHeaders: true,
+    colHeaders: data.meta.fields,
+    columnSorting: true
+  })
 }
