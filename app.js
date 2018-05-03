@@ -2,22 +2,16 @@
 const input = document.getElementById('input-file')
 const handsontableContainer = document.getElementById('handsontable-container')
 
-input.addEventListener('change', function () {
+input.addEventListener('change', async function () {
   const [file] = this.files
   
-  const reader = new FileReader()
-
-  reader.onload = function (e) {
-    var csv = e.target.result
-
-    createTable(csv)
-  }
-
-  reader.readAsText(file)
+  readAsText(file)
+    .then(createTable)
+    .catch(console.error)
 })
 
 const createTable = csv => {
-  var data = Papa.parse(csv, {
+  const data = Papa.parse(csv, {
     header: true,
     skipEmptyLines: true
   })
