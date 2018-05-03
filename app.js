@@ -11,6 +11,8 @@ input.addEventListener('change', async function () {
 })
 
 const createTable = csv => {
+  input.remove()
+  
   const data = Papa.parse(csv, {
     header: true,
     skipEmptyLines: true
