@@ -31,7 +31,7 @@ const createTable = csv => {
 const params = getURLParameters(location.search)
 
 if (params.csv) {
-  createTable(btoa(unescape(params.csv)))
+  createTable(atob(unescape(params.csv)))
 } else {
   input.addEventListener('change', async function () {
   const [file] = this.files
