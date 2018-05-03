@@ -12,7 +12,9 @@
   
   <div id="handsontable-container"></div>
   
-  <script src="//unpkg.com/exports-polyfill"></script> <!--dont ask me why i changed to unpkg lmao, the promise-file-reader library does not have any dist file compiled, so i dont want it to make an ReferenceError because module is not defined :(-->
+  <script>
+  module.exports = window // hahahah please do not cringe
+  </script> <!--dont ask me why i changed to unpkg lmao, the promise-file-reader library does not have any dist file compiled, so i dont want it to make an ReferenceError because module is not defined :(-->
   <script src="//unpkg.com/promise-file-reader"></script>
   <script src="//unpkg.com/handsontable"></script>
   <script src="//unpkg.com/papaparse"></script>
