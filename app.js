@@ -12,20 +12,6 @@ const getURLParameters = url =>
 const input = document.getElementById('input-file')
 const handsontableContainer = document.getElementById('handsontable-container')
 
-const params = getURLParameters(location.search)
-
-if (params.csv) {
-  createTable(btoa(unescape(params.csv)))
-} else {
-  input.addEventListener('change', async function () {
-  const [file] = this.files
-
-  readAsText(file)
-    .then(createTable)
-    .catch(console.error)
-  })
-}
-
 const createTable = csv => {
   input.remove()
 
@@ -39,5 +25,19 @@ const createTable = csv => {
     rowHeaders: true,
     colHeaders: data.meta.fields,
     columnSorting: true
+  })
+}
+
+const params = getURLParameters(location.search)
+
+if (params.csv) {
+  createTable(btoa(unescape(params.csv)))
+} else {
+  input.addEventListener('change', async function () {
+  const [file] = this.files
+
+  readAsText(file)
+    .then(createTable)
+    .catch(console.error)
   })
 }
